@@ -200,8 +200,8 @@ Here's a stepwise description for the experiment:
 ![image](https://github.com/user-attachments/assets/2b710ffd-d3b6-4467-b75d-01b5833253ae)
 
 ----------------------------------------------------------------------
-# Exp 1.1 
-## Aim-Display images in various formats using different color models.
+# Exp 3.1 
+## Aim-Detect points, lines, edges, and boundaries in images.
 
 **Description**
 
@@ -224,25 +224,62 @@ Here's a stepwise description for the experiment:
 ![image](https://github.com/user-attachments/assets/3119efc7-99c8-401e-8cb1-4cf6dce90f20)
 
 ----------------------------------------------------------------------
-# Exp 1.1 
-## Aim-Display images in various formats using different color models.
+# Exp 3.2
+## Aim-Implement boundary linking, representation, and description  techniques on images.
+
 
 **Description**
 
+![image](https://github.com/user-attachments/assets/985daa53-8558-4751-bfa7-60eae9424a31)
+
+![image](https://github.com/user-attachments/assets/911cf987-2c08-443f-80ec-f6f366ee21aa)
+
+
 **Output**
+
+![image](https://github.com/user-attachments/assets/b7e7631a-320f-45ac-8758-9003e519e5a3)
+
 
 **Explaination**
 
+![image](https://github.com/user-attachments/assets/24f5ff40-5a3e-4bef-bcb7-5f6d98e71706)
+
+![image](https://github.com/user-attachments/assets/1db44bc2-04f8-4a54-97d3-d8982bfa702d)
+
 **Learning Outcome**
+
+![image](https://github.com/user-attachments/assets/825cd73d-6c0e-4953-9c55-84818bc3a9b5)
+
 ----------------------------------------------------------------------
-# Exp 1.1 
-## Aim-Display images in various formats using different color models.
+# Exp 3.3 
+## Aim-Develop an application of computer vision using a convolutional neural network.
 
 **Description**
 
+![image](https://github.com/user-attachments/assets/ac209401-f807-4883-b13b-523de81689de)
+
+![image](https://github.com/user-attachments/assets/fcf7ed0d-27a0-4e07-acd1-36caba05fc6a)
+
+
 **Output**
+
+![image](https://github.com/user-attachments/assets/5fbab602-65fc-46c5-84c0-66b2fabc3ff1)
+
+![image](https://github.com/user-attachments/assets/8dad408b-487d-4712-9b9b-dcbcfdde0882)
+
+![image](https://github.com/user-attachments/assets/2ba9902d-bcca-4cd6-a034-2794fb0957ef)
+
 
 **Explaination**
 
+![image](https://github.com/user-attachments/assets/3ca554d3-8366-422b-8ae9-dcd6e607801f)
+
+![image](https://github.com/user-attachments/assets/cd0b8375-1997-4cce-ad74-b04d72d68440)
+
 **Learning Outcome**
+
+![image](https://github.com/user-attachments/assets/b6a5f0ed-bb3c-4c2c-bcf0-5598b28d57d6)
+
+![image](https://github.com/user-attachments/assets/a9c379f1-b369-4706-93ff-30ecae5f0b31)
+
 ----------------------------------------------------------------------
