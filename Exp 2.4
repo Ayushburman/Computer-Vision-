@@ -1,0 +1,88 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+from skimage import io
+from skimage.feature import canny
+from skimage.filters import sobel
+
+# Fetch an image from a URL
+url = "https://images.freeimages.com/images/large-previews/b9c/cubes-1-1178873.jpg?fmt=webp&h=350"  # Replace with any image URL
+image = io.imread(url)
+
+# Convert to grayscale
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+# 1. **Point Detection** (Harris Corner Detection)
+def point_detection(image):
+    # Gaussian Blur
+    blurred_image = cv2.GaussianBlur(image, (3, 3), 0)
+
+    # Harris Corner Detection
+    harris_response = cv2.cornerHarris(blurred_image, 2, 3, 0.04)
+
+    # Threshold for detecting points
+    points_of_interest = np.zeros_like(harris_response)
+    points_of_interest[harris_response > 0.01 * harris_response.max()] = 255
+
+    return points_of_interest
+
+points = point_detection(gray_image)
+
+# 2. **Line Detection** (Hough Transform)
+def line_detection(image):
+    edges = cv2.Canny(image, 50, 150, apertureSize=3)
+    lines = cv2.HoughLines(edges, 1, np.pi / 180, 200)
+    line_image = np.copy(image)
+
+    if lines is not None:
+        for rho, theta in lines[:, 0]:
+            a = np.cos(theta)
+            b = np.sin(theta)
+            x0 = a * rho
+            y0 = b * rho
+            x1 = int(x0 + 1000 * (-b))
+            y1 = int(y0 + 1000 * (a))
+            x2 = int(x0 - 1000 * (-b))
+            y2 = int(y0 - 1000 * (a))
+            cv2.line(line_image, (x1, y1), (x2, y2), (255, 0, 0), 2)
+    return line_image
+
+lines = line_detection(gray_image)
+
+# 3. **Edge Detection**
+def edge_detection(image):
+    # Sobel Operator
+    sobel_edges = sobel(image)
+
+    # Canny Edge Detection
+    canny_edges = canny(image, sigma=1)
+
+    return sobel_edges, canny_edges
+
+sobel_edges, canny_edges = edge_detection(gray_image)
+
+# Display Results
+plt.figure(figsize=(15, 10))
+
+plt.subplot(2, 3, 1)
+plt.title("Original Image")
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+
+plt.subplot(2, 3, 2)
+plt.title("Point Detection (Harris Corners)")
+plt.imshow(points, cmap='gray')
+
+plt.subplot(2, 3, 3)
+plt.title("Line Detection (Hough Transform)")
+plt.imshow(lines, cmap='gray')
+
+plt.subplot(2, 3, 4)
+plt.title("Sobel Edge Detection")
+plt.imshow(sobel_edges, cmap='gray')
+
+plt.subplot(2, 3, 5)
+plt.title("Canny Edge Detection")
+plt.imshow(canny_edges, cmap='gray')
+
+plt.tight_layout()
+plt.show()
