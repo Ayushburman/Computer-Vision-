@@ -1,0 +1,71 @@
+import tensorflow as tf
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras import layers, models
+import matplotlib.pyplot as plt
+
+# Directory path where dataset is stored (update with your local path)
+dataset_dir = '/content/drive/MyDrive/dataset'  # Update the path to your dataset folder
+
+# Preprocess the dataset using ImageDataGenerator
+train_datagen = ImageDataGenerator(
+    rescale=1./255,            # Normalize pixel values between 0 and 1
+    rotation_range=40,         # Random rotation of images
+    width_shift_range=0.2,     # Horizontal shifting of images
+    height_shift_range=0.2,    # Vertical shifting of images
+    shear_range=0.2,           # Shearing transformations
+    zoom_range=0.2,            # Zooming transformations
+    horizontal_flip=True,      # Randomly flip images horizontally
+    fill_mode='nearest'       # Fill in missing pixels after transformations
+)
+
+train_generator = train_datagen.flow_from_directory(
+    dataset_dir,              # Path to your dataset
+    target_size=(128, 128),    # Resize images to 128x128
+    batch_size=16,             # Number of images per batch
+    class_mode='binary',       # Binary classification (dog vs cat)
+    subset='training'          # For training data
+)
+
+# Define the CNN model architecture
+model = models.Sequential()
+
+# First convolutional layer
+model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(128, 128, 3)))
+model.add(layers.MaxPooling2D((2, 2)))
+
+# Second convolutional layer
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D((2, 2)))
+
+# Third convolutional layer
+model.add(layers.Conv2D(128, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D((2, 2)))
+
+# Flatten the feature maps to feed into dense layers
+model.add(layers.Flatten())
+
+# Fully connected layers
+model.add(layers.Dense(128, activation='relu'))
+model.add(layers.Dense(1, activation='sigmoid'))  # Output layer for binary classification (dog vs cat)
+
+# Compile the model
+model.compile(optimizer='adam', 
+              loss='binary_crossentropy', 
+              metrics=['accuracy'])
+
+# Train the model
+history = model.fit(
+    train_generator, 
+    epochs=10,  # Number of epochs
+)
+
+# Evaluate the model on training data
+print("Training completed!")
+
+# Plot training history
+plt.plot(history.history['accuracy'], label='accuracy')
+plt.title('Training Accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend(loc='upper left')
+plt.show()
