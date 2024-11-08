@@ -1,0 +1,109 @@
+import numpy as np
+import cv2
+import requests
+from io import BytesIO
+from PIL import Image
+import matplotlib.pyplot as plt
+
+# Step 1: Load image from URL
+image_url = 'https://img.freepik.com/free-photo/grid-pattern-glowing-light-tube_23-2147881346.jpg?t=st=1731060213~exp=1731063813~hmac=32b57274788a79470543f529096c522289ee93b1e33210d85c991d28ecd0f8cd&w=826'  # Replace with your image URL
+
+# Fetch image from URL
+response = requests.get(image_url)
+img = Image.open(BytesIO(response.content))
+
+# Convert image to numpy array for processing
+img = np.array(img)
+
+# Step 2: Convert to grayscale
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Step 3: Apply Canny Edge Detection to detect edges (boundaries)
+edges = cv2.Canny(gray, 100, 200)
+
+# Step 4: Boundary Linking (Connecting edge pixels)
+def boundary_linking(edge_image):
+    boundaries = []
+    visited = np.zeros_like(edge_image, dtype=bool)
+    neighbors = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
+    
+    def is_valid(x, y):
+        return 0 <= x < edge_image.shape[1] and 0 <= y < edge_image.shape[0] and edge_image[y, x] == 255 and not visited[y, x]
+    
+    def follow_edge(x, y):
+        boundary = [(x, y)]
+        visited[y, x] = True
+        stack = [(x, y)]
+        while stack:
+            cx, cy = stack.pop()
+            for dx, dy in neighbors:
+                nx, ny = cx + dx, cy + dy
+                if is_valid(nx, ny):
+                    visited[ny, nx] = True
+                    boundary.append((nx, ny))
+                    stack.append((nx, ny))
+        return boundary
+    
+    for y in range(edge_image.shape[0]):
+        for x in range(edge_image.shape[1]):
+            if edge_image[y, x] == 255 and not visited[y, x]:
+                boundary = follow_edge(x, y)
+                boundaries.append(boundary)
+
+    return boundaries
+
+# Get linked boundaries
+boundaries = boundary_linking(edges)
+
+# Step 5: Chain Code Representation for the first boundary
+def chain_code(boundary):
+    # Directions dictionary for 8 possible moves
+    directions = {
+        (0, 1): 0, (1, 1): 1, (1, 0): 2, (1, -1): 3, 
+        (0, -1): 4, (-1, -1): 5, (-1, 0): 6, (-1, 1): 7
+    }
+    chain = []
+    
+    for i in range(1, len(boundary)):
+        # Calculate difference between consecutive points
+        dx = boundary[i][0] - boundary[i-1][0]
+        dy = boundary[i][1] - boundary[i-1][1]
+        
+        # Normalize the direction to fit within the 8 possible directions
+        direction = (dx, dy)
+        
+        if direction not in directions:
+            # In case of unexpected direction, check approximate directions
+            # Example: Check for (1, -2) direction, we normalize or adjust
+            direction = (round(dx), round(dy))
+        
+        # Handle undefined direction (like (1, -2))
+        if direction in directions:
+            chain.append(directions[direction])
+        else:
+            print(f"Undefined direction: {direction}")
+            continue
+    return chain
+
+
+# Generate chain code for the first boundary
+if boundaries:
+    chain_codes = chain_code(boundaries[0])
+    print("Chain Code for the first boundary:", chain_codes)
+
+# Step 6: Visualize the results (boundary and edge detection)
+plt.figure(figsize=(10, 5))
+
+# Display edge-detected image
+plt.subplot(1, 2, 1)
+plt.imshow(edges, cmap='gray')
+plt.title("Edge Detection (Canny)")
+
+# Display linked boundaries
+plt.subplot(1, 2, 2)
+plt.imshow(img)
+for boundary in boundaries:
+    boundary = np.array(boundary)
+    plt.plot(boundary[:, 0], boundary[:, 1], color='red', linewidth=1)
+plt.title("Boundary Linking")
+plt.show()
