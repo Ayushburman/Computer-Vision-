@@ -1,0 +1,86 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+import requests
+from io import BytesIO
+from PIL import Image
+
+# Function to load an image from URL
+def load_image_from_url(url):
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
+    img = np.array(img)  # Convert the image to numpy array
+    return cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)  # Convert to grayscale
+
+# URL of the image
+image_url = 'https://images.pexels.com/photos/2363/france-landmark-lights-night.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+
+# Load the image from the URL
+image = load_image_from_url(image_url)
+
+# --- Spatial Filters ---
+# Sharpening Filter (Laplacian kernel)
+sharpening_kernel = np.array([[0, -1, 0], [-1, 5,-1], [0, -1, 0]])
+sharpened_image = cv2.filter2D(image, -1, sharpening_kernel)
+
+# Smoothing Filter (Gaussian Blur)
+smoothed_image = cv2.GaussianBlur(image, (5, 5), 0)
+
+# Edge Detection Filter (Sobel)
+sobel_x = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=3)
+sobel_y = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=3)
+edge_detected_image = cv2.magnitude(sobel_x, sobel_y)
+
+# --- Frequency Domain Filters ---
+# Fourier Transform of the image
+f = np.fft.fft2(image)
+fshift = np.fft.fftshift(f)
+rows, cols = image.shape
+crow, ccol = rows // 2, cols // 2
+
+# Low-pass Filter (passes low frequencies, cuts off high frequencies)
+mask_lp = np.zeros((rows, cols), np.uint8)
+r = 30  # Radius of the low-pass filter
+center = [crow, ccol]
+x, y = np.ogrid[:rows, :cols]
+mask_area = (x - center[0])**2 + (y - center[1])**2 <= r*r
+mask_lp[mask_area] = 1
+fshift_lp = fshift * mask_lp
+img_back_lp = np.fft.ifft2(np.fft.ifftshift(fshift_lp))
+img_back_lp = np.abs(img_back_lp)
+
+# High-pass Filter (enhances high frequencies)
+mask_hp = np.ones((rows, cols), np.uint8)
+mask_hp[mask_area] = 0  # Block the low frequencies
+fshift_hp = fshift * mask_hp
+img_back_hp = np.fft.ifft2(np.fft.ifftshift(fshift_hp))
+img_back_hp = np.abs(img_back_hp)
+
+# Band-pass Filter (passes frequencies in a specified range)
+mask_bp = np.zeros((rows, cols), np.uint8)
+r_inner = 20  # Inner radius
+r_outer = 50  # Outer radius
+mask_area_inner = (x - center[0])**2 + (y - center[1])**2 <= r_inner*r_inner
+mask_area_outer = (x - center[0])**2 + (y - center[1])**2 <= r_outer*r_outer
+mask_bp[mask_area_outer] = 1
+mask_bp[mask_area_inner] = 0  # Block frequencies inside the inner radius
+fshift_bp = fshift * mask_bp
+img_back_bp = np.fft.ifft2(np.fft.ifftshift(fshift_bp))
+img_back_bp = np.abs(img_back_bp)
+
+# Display results
+plt.figure(figsize=(12, 12))
+
+# Spatial Filters Results
+plt.subplot(3, 3, 1), plt.imshow(image, cmap='gray'), plt.title('Original Image')
+plt.subplot(3, 3, 2), plt.imshow(sharpened_image, cmap='gray'), plt.title('Sharpened Image')
+plt.subplot(3, 3, 3), plt.imshow(smoothed_image, cmap='gray'), plt.title('Smoothed Image')
+plt.subplot(3, 3, 4), plt.imshow(edge_detected_image, cmap='gray'), plt.title('Edge Detection (Sobel)')
+
+# Frequency Domain Filters Results
+plt.subplot(3, 3, 5), plt.imshow(np.log(np.abs(fshift) + 1), cmap='gray'), plt.title('Fourier Transform (Shifted)')
+plt.subplot(3, 3, 6), plt.imshow(img_back_lp, cmap='gray'), plt.title('Low-pass Filtered Image')
+plt.subplot(3, 3, 7), plt.imshow(img_back_hp, cmap='gray'), plt.title('High-pass Filtered Image')
+plt.subplot(3, 3, 8), plt.imshow(img_back_bp, cmap='gray'), plt.title('Band-pass Filtered Image')
+
+plt.show()
