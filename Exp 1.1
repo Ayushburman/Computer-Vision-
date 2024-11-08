@@ -22,6 +22,7 @@ plt.imshow(rgb_image)
 plt.title('RGB')
 plt.axis('off')
 
+
 # Convert to Grayscale
 gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 plt.subplot(2, 2, 2)
@@ -51,3 +52,6 @@ cv2.imwrite('RGB_image.jpg', cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR))  # Conv
 cv2.imwrite('Gray_image.jpg', gray_image)
 cv2.imwrite('HSV_image.jpg', cv2.cvtColor(hsv_image, cv2.COLOR_HSV2BGR))  # Convert HSV back to BGR for saving
 cv2.imwrite('Lab_image.jpg', cv2.cvtColor(lab_image, cv2.COLOR_Lab2BGR))  # Convert Lab back to BGR for saving
+
+
+
