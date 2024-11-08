@@ -1,0 +1,78 @@
+import cv2
+import numpy as np
+import urllib
+from urllib.request import urlopen
+import matplotlib.pyplot as plt
+
+# Function to load image from URL
+def load_image_from_url(url):
+    arr = np.asarray(bytearray(urlopen(url).read()), dtype=np.uint8)  # Read image data from URL
+    image = cv2.imdecode(arr, -1)  # Decode image
+    return image
+
+# URL of the input image (example)
+image_url = 'https://images.pexels.com/photos/3689867/pexels-photo-3689867.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+
+# Load the input image from URL
+image = load_image_from_url(image_url)
+
+# Check if the image is grayscale or color
+if len(image.shape) == 2:  # Grayscale image
+    print("Image is in grayscale")
+    # Convert the image to color for processing (optional)
+    image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+else:
+    print("Image is in color")
+
+# Apply noise removal filter (e.g., median filter)
+denoised_image = cv2.medianBlur(image, 5)
+
+# Save or display the denoised image
+cv2.imwrite('denoised_image.jpg', denoised_image)
+
+# Show images
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.title("Original Image")
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+plt.axis('off')
+
+plt.subplot(1, 2, 2)
+plt.title("Denoised Image")
+plt.imshow(cv2.cvtColor(denoised_image, cv2.COLOR_BGR2RGB))
+plt.axis('off')
+plt.show()
+
+# Inverse Filtering:
+# Convert the image to grayscale for inverse filtering
+degraded_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+# Apply Fourier transform to the degraded image
+degraded_fft = np.fft.fft2(degraded_image)
+
+# Assume a simple degradation function and noise spectrum for illustration
+# For simplicity, let's take a simple low-pass filter
+rows, cols = degraded_image.shape
+crow, ccol = rows // 2, cols // 2  # center of the image
+# Create a simple mask to simulate a low-pass filter
+mask = np.zeros((rows, cols), dtype=np.float32)
+r = 30  # radius of the mask
+center = [crow, ccol]
+x, y = np.fft.fftfreq(cols), np.fft.fftfreq(rows)
+mask[np.sqrt((x[:, None] - center[0])**2 + (y[None, :] - center[1])**2) <= r] = 1
+
+# Apply the inverse filter in the frequency domain (assuming known degradation function)
+inverse_filter = np.conj(degraded_fft) / (degraded_fft * mask + 1e-5)
+
+# Perform inverse Fourier transform to obtain the restored image
+restored_image = np.fft.ifft2(inverse_filter)
+
+# Show the restored image
+plt.figure(figsize=(10, 5))
+plt.title("Restored Image")
+plt.imshow(np.abs(restored_image), cmap='gray')
+plt.axis('off')
+plt.show()
+
+# Save or display the restored image
+cv2.imwrite('restored_image.jpg', np.abs(restored_image))
