@@ -1,1 +1,62 @@
+import cv2
+import numpy as np
+import requests
+from io import BytesIO
+from matplotlib import pyplot as plt
+from PIL import Image
+
+# Function to display images
+def display_image(title, img):
+    plt.imshow(img, cmap='gray')
+    plt.title(title)
+    plt.axis('off')
+    plt.show()
+
+# Step 1: Load a grayscale image from a URL
+url = 'https://images.pexels.com/photos/1745936/pexels-photo-1745936.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+response = requests.get(url)
+image = Image.open(BytesIO(response.content)).convert('L')  # Convert to grayscale
+image = np.array(image)
+display_image("Original Image", image)
+
+# Step 2: Negative Transformation
+def negative_transformation(img):
+    return 255 - img
+
+negative_image = negative_transformation(image)
+display_image("Negative Transformation", negative_image)
+
+# Step 3: Log Transformation
+def log_transformation(img):
+    c = 255 / np.log(1 + np.max(img))
+    log_image = c * np.log(1 + img)
+    return np.array(log_image, dtype=np.uint8)
+
+log_image = log_transformation(image)
+display_image("Log Transformation", log_image)
+
+# Step 4: Gamma Transformation
+def gamma_transformation(img, gamma):
+    c = 1  # keeping c = 1 for simplicity
+    gamma_image = c * (img / 255.0) ** gamma
+    return np.array(255 * gamma_image, dtype=np.uint8)
+
+gamma_image_bright = gamma_transformation(image, 0.5)  # brightening (gamma < 1)
+gamma_image_dark = gamma_transformation(image, 2.0)    # darkening (gamma > 1)
+display_image("Gamma Transformation (Bright)", gamma_image_bright)
+display_image("Gamma Transformation (Dark)", gamma_image_dark)
+
+# Step 5: Histogram Equalization
+def histogram_equalization(img):
+    return cv2.equalizeHist(img)
+
+equalized_image = histogram_equalization(image)
+display_image("Histogram Equalization", equalized_image)
+
+# Optionally save the images
+cv2.imwrite("negative_image.jpg", negative_image)
+cv2.imwrite("log_image.jpg", log_image)
+cv2.imwrite("gamma_image_bright.jpg", gamma_image_bright)
+cv2.imwrite("gamma_image_dark.jpg", gamma_image_dark)
+cv2.imwrite("equalized_image.jpg", equalized_image)
 
