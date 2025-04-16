@@ -3,7 +3,7 @@ All Practicals
 
 
 # Exp 1.1 
-## Aim-Display images in various formats using different color model.
+## Aim-Display images in various formats using different color models.
 
 **Description**
 
