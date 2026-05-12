@@ -1,33 +1,283 @@
 # Computer-Vision
-All Practicals
+# Display Images in Various Formats Using Different Color Models
+
+## 📌 Aim
+
+To display and analyze images in different color models such as **RGB, Grayscale, HSV, and Lab** using **OpenCV** and **Matplotlib** in Python.
+
+---
+
+# 📖 Description
+
+This experiment demonstrates how digital images can be represented and visualized using different color spaces.
+Different color models are useful for image processing, computer vision, segmentation, enhancement, and analysis.
+
+---
+
+# 🧠 Step 1: Introduction to Image Formats and Color Models
+
+## 🖼️ Common Image Formats
+
+| Format   | Description             | Advantages           | Use Cases         |
+| -------- | ----------------------- | -------------------- | ----------------- |
+| JPG/JPEG | Compressed image format | Small file size      | Photography       |
+| PNG      | Lossless compression    | Transparency support | Web graphics      |
+| BMP      | Bitmap image format     | High quality         | Raw image storage |
+
+---
+
+## 🌈 Color Models
+
+| Color Model | Description                | Applications          |
+| ----------- | -------------------------- | --------------------- |
+| RGB         | Red, Green, Blue channels  | Digital displays      |
+| Grayscale   | Black & white intensity    | Simplified processing |
+| HSV         | Hue, Saturation, Value     | Color detection       |
+| Lab         | Lightness + color channels | Color correction      |
+
+---
+
+# ⚙️ Step 2: Setup and Installation
+
+## Install Required Libraries
+
+### Using pip
+
+```bash
+pip install opencv-python matplotlib
+```
+
+### Using conda
+
+```bash
+conda install opencv matplotlib
+```
+
+---
+
+# 🖼️ Step 3: Image Acquisition
+
+* Choose or download sample images.
+* Use images with different colors and textures for better visualization.
+* Supported formats:
+
+  * `.jpg`
+  * `.png`
+  * `.bmp`
+
+---
+
+# 📥 Step 4: Reading Images
+
+Use OpenCV to load an image.
+
+```python
+import cv2
+
+image = cv2.imread("image.jpg")
+```
+
+### Explanation
+
+* `cv2.imread()` reads the image from disk.
+* Returns image as NumPy array.
+* Default format in OpenCV → **BGR**
+
+---
+
+# 🔄 Step 5: Conversion to Different Color Models
+
+## 🔴 RGB Model
+
+```python
+rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+```
+
+### Purpose
+
+Represents image using:
+
+* Red
+* Green
+* Blue channels
+
+---
+
+## ⚫ Grayscale Conversion
+
+```python
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+```
+
+### Benefits
+
+* Reduced complexity
+* Faster processing
+* Useful in edge detection
+
+---
+
+## 🌈 HSV Conversion
+
+```python
+hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+```
+
+### Components
+
+* Hue
+* Saturation
+* Value
+
+### Applications
+
+* Color segmentation
+* Object tracking
+
+---
+
+## 🎨 Lab Conversion
+
+```python
+lab = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
+```
+
+### Applications
+
+* Color balancing
+* Perceptual color analysis
+
+---
+
+# 📊 Step 6: Visualization with Matplotlib
+
+```python
+import matplotlib.pyplot as plt
+
+plt.imshow(rgb)
+plt.show()
+```
+
+### Purpose
+
+* Display images
+* Compare different color spaces
+* Visualize transformations
+
+---
+
+# 💾 Step 7: Saving Processed Images
+
+```python
+cv2.imwrite("gray.jpg", gray)
+```
+
+### Supported Formats
+
+* JPG
+* PNG
+* BMP
+
+---
+
+# 🧪 Complete Python Program
+
+```python
+import cv2
+import matplotlib.pyplot as plt
+
+# Read image
+image = cv2.imread("image.jpg")
+
+# Convert image
+rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+lab = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
+
+# Display images
+plt.figure(figsize=(10,8))
+
+plt.subplot(2,2,1)
+plt.imshow(rgb)
+plt.title("RGB")
+
+plt.subplot(2,2,2)
+plt.imshow(gray, cmap='gray')
+plt.title("Grayscale")
+
+plt.subplot(2,2,3)
+plt.imshow(hsv)
+plt.title("HSV")
+
+plt.subplot(2,2,4)
+plt.imshow(lab)
+plt.title("Lab")
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+# 📌 Output
+
+| RGB                        | Grayscale                      |
+| -------------------------- | ------------------------------ |
+| Color image representation | Black and white representation |
+
+| HSV                      | Lab                             |
+| ------------------------ | ------------------------------- |
+| Hue-based representation | Perceptual color representation |
+
+---
+
+# ✅ Result
+
+Successfully displayed images in multiple color models:
+
+* RGB
+* Grayscale
+* HSV
+* Lab
+
+using **OpenCV** and **Matplotlib**.
+
+---
+
+# 📚 Applications
+
+* Computer Vision
+* Medical Imaging
+* Face Detection
+* Object Tracking
+* Image Segmentation
+* AI & Deep Learning
+
+---
+
+# 🎯 Conclusion
+
+This experiment helped understand:
+
+* Different image formats
+* Various color models
+* Image conversion techniques
+* Visualization using Python libraries
+
+It also demonstrated how different color spaces are useful for specific image processing tasks.
+
+---
+
+# 🚀 Future Scope
+
+* Real-time video processing
+* Face recognition systems
+* Object detection
+* Deep learning image pipelines
+* Advanced color segmentation
 
 
-# Exp 1.1 
-## Aim-Display images in various formats using different color models.
-
-**Description**
-
-Here's a stepwise description for the experiment:
-![image](https://github.com/user-attachments/assets/eed01368-d061-431d-b79b-0aa72347a524)
-
-![image](https://github.com/user-attachments/assets/1d47c56d-1244-4d05-8f61-23c2ca941078)
-
-![image](https://github.com/user-attachments/assets/8a020879-d5d1-46f7-940c-91a9a14a1313)
-
-![image](https://github.com/user-attachments/assets/d6e578cf-f248-44ff-96eb-30e5a7218aa4)
-
-**Output**
-
-![image](https://github.com/user-attachments/assets/14192759-6c68-4071-b3d1-44d192705889)
-
-
-**Explanation:*
-
-![image](https://github.com/user-attachments/assets/2f74ba9f-d247-459f-9778-a0cc8963415c)
-
-**Learning Outcomes**
-
-![image](https://github.com/user-attachments/assets/2eb3e3e0-cc50-4f9d-b84b-1802f6de0436)
 
 
 ----------------------------------------------------------------------
