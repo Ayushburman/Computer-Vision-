@@ -96,6 +96,7 @@ This is what separates "trained a model" from "job-ready":
 - **Autonomous systems**: depth estimation, SLAM, LiDAR fusion
   
 - **Medical imaging**: DICOM handling, explainability (Grad-CAM, SHAP)
+  
 - **Video understanding**: action recognition, tracking (DeepSORT), temporal models (3D CNNs, video transformers)
 - **Document AI**: OCR pipelines, layout-aware models (LayoutLM)
 
