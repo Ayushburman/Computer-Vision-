@@ -19,6 +19,7 @@ Understand vision *before* deep learning — this matters for interviews and for
 - Geometric transforms: affine/perspective transforms, homography
   
 - Morphological operations, contour detection, thresholding
+  
 - **Tool**: OpenCV (do this in Python, not just theory)
 - **Project checkpoint**: Document scanner, panorama stitching, or basic object tracking using classical methods only
 
