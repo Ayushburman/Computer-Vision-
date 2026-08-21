@@ -65,6 +65,7 @@ This is the meat of "real" computer vision:
 **Image Segmentation**
 
 - Semantic segmentation: FCN, U-Net
+  
 - Instance segmentation: Mask R-CNN
 - **Project**: Medical image segmentation or satellite land-use segmentation
 
