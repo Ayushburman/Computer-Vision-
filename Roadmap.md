@@ -21,6 +21,7 @@ Understand vision *before* deep learning — this matters for interviews and for
 - Morphological operations, contour detection, thresholding
   
 - **Tool**: OpenCV (do this in Python, not just theory)
+  
 - **Project checkpoint**: Document scanner, panorama stitching, or basic object tracking using classical methods only
 
 ## Phase 2: Neural Network Foundations for Vision (2-3 weeks)
