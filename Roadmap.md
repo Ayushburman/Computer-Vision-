@@ -11,6 +11,7 @@ Here's a complete roadmap, structured in phases so it builds on itself rather th
 Understand vision *before* deep learning — this matters for interviews and for cases where DL is overkill.
 
 - Image basics: color spaces (RGB/HSV/grayscale), histograms
+  
 - Filtering: convolution, Gaussian/median blur, edge detection (Sobel, Canny)
 - Feature detection: corners (Harris), keypoints (SIFT, ORB), feature matching
 - Geometric transforms: affine/perspective transforms, homography
