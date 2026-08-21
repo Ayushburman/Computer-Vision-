@@ -29,9 +29,10 @@ Here's a solid spread of computer vision projects, split by purpose:
 9. **Video Surveillance Anomaly Detection** — Detect unusual activity (fights, falls, intrusion) in CCTV footage using autoencoders/LSTM + CNN hybrid
    
 11. **Industrial Defect Detection (Anomaly Detection)** — Manufacturing QC system using autoencoders or PatchCore for detecting defects in product images (very in-demand for core + IT companies)
-12. **Multi-Object Tracking + Re-Identification** — Track and re-identify people/vehicles across multiple camera feeds (DeepSORT + ReID embeddings)
-13. **OCR + Document Intelligence System** — Extract structured data from invoices/forms (layout-aware OCR like LayoutLM/Donut), useful for fintech/insurtech roles
-14. **Image Segmentation for Satellite/Aerial Imagery** — Land-use classification or building footprint extraction using U-Net/Mask R-CNN — strong for GIS/remote-sensing-adjacent roles
-15. **Vision-Language Application** — Image captioning or visual question answering (VQA) using CLIP + a language model — shows you're current with multimodal trends, big differentiator right now
+    
+13. **Multi-Object Tracking + Re-Identification** — Track and re-identify people/vehicles across multiple camera feeds (DeepSORT + ReID embeddings)
+14. **OCR + Document Intelligence System** — Extract structured data from invoices/forms (layout-aware OCR like LayoutLM/Donut), useful for fintech/insurtech roles
+15. **Image Segmentation for Satellite/Aerial Imagery** — Land-use classification or building footprint extraction using U-Net/Mask R-CNN — strong for GIS/remote-sensing-adjacent roles
+16. **Vision-Language Application** — Image captioning or visual question answering (VQA) using CLIP + a language model — shows you're current with multimodal trends, big differentiator right now
 
 **Suggestion for structuring your GitHub:** given your dark-themed, sci-fi aesthetic pattern for TOC/DBMS/Compiler Design portfolios, a CV repo with the same style (architecture diagrams, model pipeline visuals, before/after result images) would look sharp and consistent. If you want, I can help you pick 2-3 from the major list that best complement your GATE CSE + AI/ML interest and sketch out a build roadmap for one.
