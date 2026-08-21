@@ -55,6 +55,7 @@ This is the meat of "real" computer vision:
 
 **Object Detection**
 - Two-stage: R-CNN → Fast R-CNN → Faster R-CNN (region proposals)
+  
 - One-stage: YOLO (v1 through v8/v9), SSD
 - Concepts: anchor boxes, IoU, NMS, mAP evaluation
 - **Project**: Custom YOLO training on your own dataset
