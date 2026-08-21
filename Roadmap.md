@@ -86,6 +86,7 @@ This is the meat of "real" computer vision:
 
 ## Phase 6: MLOps / Deployment for CV (2 weeks)
 This is what separates "trained a model" from "job-ready":
+
 - Model optimization: quantization, pruning, ONNX conversion
 - Deployment: Flask/FastAPI backend, Streamlit/Gradio demo, Docker containerization
 - Edge deployment basics: TensorRT, OpenVINO (nice-to-have, big plus for embedded/robotics roles)
