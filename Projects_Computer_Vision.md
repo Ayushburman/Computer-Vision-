@@ -17,6 +17,7 @@ Here's a solid spread of computer vision projects, split by purpose:
 
 ## Major Projects (Placement-ready, resume-worthy, demonstrate depth)
 
+
 1. **Real-Time Object Detection System** — Custom-trained YOLOv8/v9 on a niche dataset (e.g., PPE compliance, traffic violations, retail shelf monitoring), deployed with a live dashboard
 2. **Medical Image Diagnosis Pipeline** — CNN/Vision Transformer for tumor/pneumonia/skin-lesion classification, with Grad-CAM explainability layer (huge for interviews — shows you understand *why* the model decides, not just accuracy)
 3. **End-to-End Facial Recognition Attendance System** — Face embedding (FaceNet/ArcFace) + liveness detection (anti-spoofing) + database + web dashboard — full-stack CV
