@@ -86,6 +86,7 @@ This is the meat of "real" computer vision:
 - **Diffusion models** (conceptual understanding — Stable Diffusion basics, even if you don't train one)
   
 - **CLIP & multimodal models**: image-text alignment, zero-shot classification
+  
 - **Project**: Industrial anomaly detection using autoencoders, or a CLIP-based image search tool
 
 ## Phase 6: MLOps / Deployment for CV (2 weeks)
