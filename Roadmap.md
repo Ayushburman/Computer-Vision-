@@ -90,6 +90,7 @@ This is what separates "trained a model" from "job-ready":
 - Model optimization: quantization, pruning, ONNX conversion
   
 - Deployment: Flask/FastAPI backend, Streamlit/Gradio demo, Docker containerization
+  
 - Edge deployment basics: TensorRT, OpenVINO (nice-to-have, big plus for embedded/robotics roles)
 - Real-time inference: webcam pipelines, frame-rate optimization
 - **Project checkpoint**: Deploy any earlier project as a live web demo, not just a notebook
