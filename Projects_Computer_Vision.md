@@ -23,12 +23,13 @@ Here's a solid spread of computer vision projects, split by purpose:
 3. **Medical Image Diagnosis Pipeline** — CNN/Vision Transformer for tumor/pneumonia/skin-lesion classification, with Grad-CAM explainability layer (huge for interviews — shows you understand *why* the model decides, not just accuracy)
    
 5. **End-to-End Facial Recognition Attendance System** — Face embedding (FaceNet/ArcFace) + liveness detection (anti-spoofing) + database + web dashboard — full-stack CV
-6. **Autonomous Driving Perception Stack** — Lane detection + object detection + depth estimation on a dataset like KITTI/BDD100K, simulate on CARLA
-7. **Video Surveillance Anomaly Detection** — Detect unusual activity (fights, falls, intrusion) in CCTV footage using autoencoders/LSTM + CNN hybrid
-8. **Industrial Defect Detection (Anomaly Detection)** — Manufacturing QC system using autoencoders or PatchCore for detecting defects in product images (very in-demand for core + IT companies)
-9. **Multi-Object Tracking + Re-Identification** — Track and re-identify people/vehicles across multiple camera feeds (DeepSORT + ReID embeddings)
-10. **OCR + Document Intelligence System** — Extract structured data from invoices/forms (layout-aware OCR like LayoutLM/Donut), useful for fintech/insurtech roles
-11. **Image Segmentation for Satellite/Aerial Imagery** — Land-use classification or building footprint extraction using U-Net/Mask R-CNN — strong for GIS/remote-sensing-adjacent roles
-12. **Vision-Language Application** — Image captioning or visual question answering (VQA) using CLIP + a language model — shows you're current with multimodal trends, big differentiator right now
+   
+7. **Autonomous Driving Perception Stack** — Lane detection + object detection + depth estimation on a dataset like KITTI/BDD100K, simulate on CARLA
+8. **Video Surveillance Anomaly Detection** — Detect unusual activity (fights, falls, intrusion) in CCTV footage using autoencoders/LSTM + CNN hybrid
+9. **Industrial Defect Detection (Anomaly Detection)** — Manufacturing QC system using autoencoders or PatchCore for detecting defects in product images (very in-demand for core + IT companies)
+10. **Multi-Object Tracking + Re-Identification** — Track and re-identify people/vehicles across multiple camera feeds (DeepSORT + ReID embeddings)
+11. **OCR + Document Intelligence System** — Extract structured data from invoices/forms (layout-aware OCR like LayoutLM/Donut), useful for fintech/insurtech roles
+12. **Image Segmentation for Satellite/Aerial Imagery** — Land-use classification or building footprint extraction using U-Net/Mask R-CNN — strong for GIS/remote-sensing-adjacent roles
+13. **Vision-Language Application** — Image captioning or visual question answering (VQA) using CLIP + a language model — shows you're current with multimodal trends, big differentiator right now
 
 **Suggestion for structuring your GitHub:** given your dark-themed, sci-fi aesthetic pattern for TOC/DBMS/Compiler Design portfolios, a CV repo with the same style (architecture diagrams, model pipeline visuals, before/after result images) would look sharp and consistent. If you want, I can help you pick 2-3 from the major list that best complement your GATE CSE + AI/ML interest and sketch out a build roadmap for one.
