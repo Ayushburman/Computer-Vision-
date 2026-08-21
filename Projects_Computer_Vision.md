@@ -3,16 +3,17 @@ Here's a solid spread of computer vision projects, split by purpose:
 ## Mini Projects (Weekend-scale, fun, portfolio filler)
 
 1. **Face Detection & Filters** — Snapchat-style filters using OpenCV + dlib/Mediapipe facial landmarks
-2. **Handwritten Digit Recognizer** — MNIST + CNN, deploy as a simple drawing-pad web app
-3. **Color Detection & Object Tracking** — Track a colored ball/object in real-time webcam feed
-4. **Document Scanner** — Auto-crop and perspective-correct a photographed document (like CamScanner)
-5. **QR/Barcode Scanner** — Real-time detection and decoding via webcam
-6. **Emotion Detector** — Classify facial expressions (happy/sad/angry) from webcam feed
-7. **Background Remover/Blur** — Like Zoom's virtual background using segmentation
-8. **ANPR (basic)** — Detect and read vehicle number plates from static images
-9. **Sudoku Solver from Image** — Detect grid, OCR digits, solve, overlay solution
-10. **Hand Gesture Volume Control** — Control system volume using hand landmarks (Mediapipe)
-11. **Image Style Transfer** — Apply Van Gogh/artistic styles to photos using pretrained models
+   
+3. **Handwritten Digit Recognizer** — MNIST + CNN, deploy as a simple drawing-pad web app
+4. **Color Detection & Object Tracking** — Track a colored ball/object in real-time webcam feed
+5. **Document Scanner** — Auto-crop and perspective-correct a photographed document (like CamScanner)
+6. **QR/Barcode Scanner** — Real-time detection and decoding via webcam
+7. **Emotion Detector** — Classify facial expressions (happy/sad/angry) from webcam feed
+8. **Background Remover/Blur** — Like Zoom's virtual background using segmentation
+9. **ANPR (basic)** — Detect and read vehicle number plates from static images
+10. **Sudoku Solver from Image** — Detect grid, OCR digits, solve, overlay solution
+11. **Hand Gesture Volume Control** — Control system volume using hand landmarks (Mediapipe)
+12. **Image Style Transfer** — Apply Van Gogh/artistic styles to photos using pretrained models
 
 
 ## Major Projects (Placement-ready, resume-worthy, demonstrate depth)
