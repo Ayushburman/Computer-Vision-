@@ -47,6 +47,7 @@ Study the evolution — this is a common interview topic (theory + why each inno
 - LeNet → AlexNet → VGG → GoogLeNet/Inception → ResNet (residual connections — important) → EfficientNet
   
 - Transfer learning & fine-tuning (freeze layers, feature extraction vs fine-tuning)
+  
 - **Project checkpoint**: Fine-tune a pretrained ResNet on a custom dataset (e.g., your own image classes)
 
 ## Phase 4: Core CV Tasks (4-5 weeks)
