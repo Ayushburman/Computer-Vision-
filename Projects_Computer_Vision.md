@@ -33,7 +33,8 @@ Here's a solid spread of computer vision projects, split by purpose:
 13. **Multi-Object Tracking + Re-Identification** — Track and re-identify people/vehicles across multiple camera feeds (DeepSORT + ReID embeddings)
     
 15. **OCR + Document Intelligence System** — Extract structured data from invoices/forms (layout-aware OCR like LayoutLM/Donut), useful for fintech/insurtech roles
-16. **Image Segmentation for Satellite/Aerial Imagery** — Land-use classification or building footprint extraction using U-Net/Mask R-CNN — strong for GIS/remote-sensing-adjacent roles
-17. **Vision-Language Application** — Image captioning or visual question answering (VQA) using CLIP + a language model — shows you're current with multimodal trends, big differentiator right now
+    
+17. **Image Segmentation for Satellite/Aerial Imagery** — Land-use classification or building footprint extraction using U-Net/Mask R-CNN — strong for GIS/remote-sensing-adjacent roles
+18. **Vision-Language Application** — Image captioning or visual question answering (VQA) using CLIP + a language model — shows you're current with multimodal trends, big differentiator right now
 
 **Suggestion for structuring your GitHub:** given your dark-themed, sci-fi aesthetic pattern for TOC/DBMS/Compiler Design portfolios, a CV repo with the same style (architecture diagrams, model pipeline visuals, before/after result images) would look sharp and consistent. If you want, I can help you pick 2-3 from the major list that best complement your GATE CSE + AI/ML interest and sketch out a build roadmap for one.
