@@ -35,8 +35,9 @@ Understand vision *before* deep learning — this matters for interviews and for
 - Activation functions, batch normalization, dropout
   
 - Build from scratch: a basic CNN in NumPy (no frameworks) — this cements understanding better than anything else
+  
 - Then rebuild it in PyTorch/TensorFlow
-- 
+  
 - **Project checkpoint**: MNIST/CIFAR-10 classifier, hand-coded first, then framework version
 
 ## Phase 3: Classic CNN Architectures (2 weeks)
