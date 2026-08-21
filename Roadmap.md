@@ -27,6 +27,7 @@ Understand vision *before* deep learning — this matters for interviews and for
 ## Phase 2: Neural Network Foundations for Vision (2-3 weeks)
 
 - Perceptrons → MLPs → why they fail on images (parameter explosion)
+  
 - CNN fundamentals: convolution layers, pooling, stride, padding, receptive fields
 - Backpropagation through conv layers (understand it, don't just use it)
 - Activation functions, batch normalization, dropout
