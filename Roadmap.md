@@ -13,6 +13,7 @@ Understand vision *before* deep learning — this matters for interviews and for
 - Image basics: color spaces (RGB/HSV/grayscale), histograms
   
 - Filtering: convolution, Gaussian/median blur, edge detection (Sobel, Canny)
+  
 - Feature detection: corners (Harris), keypoints (SIFT, ORB), feature matching
 - Geometric transforms: affine/perspective transforms, homography
 - Morphological operations, contour detection, thresholding
