@@ -59,6 +59,7 @@ This is the meat of "real" computer vision:
 - One-stage: YOLO (v1 through v8/v9), SSD
   
 - Concepts: anchor boxes, IoU, NMS, mAP evaluation
+  
 - **Project**: Custom YOLO training on your own dataset
 
 **Image Segmentation**
