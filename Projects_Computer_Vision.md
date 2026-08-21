@@ -14,6 +14,7 @@ Here's a solid spread of computer vision projects, split by purpose:
 10. **Hand Gesture Volume Control** — Control system volume using hand landmarks (Mediapipe)
 11. **Image Style Transfer** — Apply Van Gogh/artistic styles to photos using pretrained models
 
+
 ## Major Projects (Placement-ready, resume-worthy, demonstrate depth)
 
 1. **Real-Time Object Detection System** — Custom-trained YOLOv8/v9 on a niche dataset (e.g., PPE compliance, traffic violations, retail shelf monitoring), deployed with a live dashboard
