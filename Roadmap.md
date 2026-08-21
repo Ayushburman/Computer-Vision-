@@ -43,6 +43,7 @@ Understand vision *before* deep learning — this matters for interviews and for
 ## Phase 3: Classic CNN Architectures (2 weeks)
 
 Study the evolution — this is a common interview topic (theory + why each innovation mattered):
+
 - LeNet → AlexNet → VGG → GoogLeNet/Inception → ResNet (residual connections — important) → EfficientNet
 - Transfer learning & fine-tuning (freeze layers, feature extraction vs fine-tuning)
 - **Project checkpoint**: Fine-tune a pretrained ResNet on a custom dataset (e.g., your own image classes)
