@@ -72,6 +72,7 @@ This is the meat of "real" computer vision:
 
 **Face-related tasks**
 - Face detection (Haar cascades → MTCNN)
+- 
 - Face recognition/embeddings (FaceNet, ArcFace, triplet loss concept)
 - **Project**: Attendance system with liveness detection
 
