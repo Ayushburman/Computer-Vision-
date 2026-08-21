@@ -4,6 +4,7 @@ Here's a complete roadmap, structured in phases so it builds on itself rather th
 - **Math**: Linear algebra (matrices, eigenvalues — you've already covered this deeply), probability/statistics, calculus (gradients, chain rule for backprop)
   
 - **Programming**: Python fluency, NumPy for array operations
+  
 - **ML fundamentals**: Supervised learning basics, loss functions, gradient descent, overfitting/regularization
 
 ## Phase 1: Classical Computer Vision (2-3 weeks)
