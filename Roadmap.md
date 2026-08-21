@@ -124,6 +124,8 @@ This is what separates "trained a model" from "job-ready":
 
 That's roughly **4.5-5 months** of consistent, serious work to go from foundations to placement-ready, assuming you're pairing theory with actual projects at each checkpoint rather than just watching tutorials.
 
+
+
 One honest note: given your GATE CSE 2027 timeline is already demanding, you may want to treat this as a parallel track that runs slower (maybe phases spread across 8-9 months instead of 5) rather than something you sprint through alongside GATE prep — trying to do both at full intensity is a good way to burn out on both.
 
 Want me to turn this into one of your dark-themed HTML roadmap references, or help you sequence it against your existing six-phase GATE plan so they don't collide?
