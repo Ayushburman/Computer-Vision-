@@ -79,6 +79,7 @@ This is the meat of "real" computer vision:
 
 ## Phase 5: Advanced Architectures (3-4 weeks)
 - **Vision Transformers (ViT)**: patch embeddings, attention in vision — increasingly asked in interviews now
+  
 - **Autoencoders & GANs**: image generation, anomaly detection use cases
 - **Diffusion models** (conceptual understanding — Stable Diffusion basics, even if you don't train one)
 - **CLIP & multimodal models**: image-text alignment, zero-shot classification
