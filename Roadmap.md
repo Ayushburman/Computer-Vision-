@@ -71,8 +71,9 @@ This is the meat of "real" computer vision:
 - **Project**: Medical image segmentation or satellite land-use segmentation
 
 **Face-related tasks**
+
 - Face detection (Haar cascades → MTCNN)
-- 
+  
 - Face recognition/embeddings (FaceNet, ArcFace, triplet loss concept)
 - **Project**: Attendance system with liveness detection
 
