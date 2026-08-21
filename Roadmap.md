@@ -81,6 +81,7 @@ This is the meat of "real" computer vision:
 - **Vision Transformers (ViT)**: patch embeddings, attention in vision — increasingly asked in interviews now
   
 - **Autoencoders & GANs**: image generation, anomaly detection use cases
+  
 - **Diffusion models** (conceptual understanding — Stable Diffusion basics, even if you don't train one)
 - **CLIP & multimodal models**: image-text alignment, zero-shot classification
 - **Project**: Industrial anomaly detection using autoencoders, or a CLIP-based image search tool
