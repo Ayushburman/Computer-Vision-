@@ -41,6 +41,7 @@ Understand vision *before* deep learning — this matters for interviews and for
 - **Project checkpoint**: MNIST/CIFAR-10 classifier, hand-coded first, then framework version
 
 ## Phase 3: Classic CNN Architectures (2 weeks)
+
 Study the evolution — this is a common interview topic (theory + why each innovation mattered):
 - LeNet → AlexNet → VGG → GoogLeNet/Inception → ResNet (residual connections — important) → EfficientNet
 - Transfer learning & fine-tuning (freeze layers, feature extraction vs fine-tuning)
